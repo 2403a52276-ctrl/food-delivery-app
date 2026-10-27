@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuickBite | Food Delivery Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">ASSIGNMENT 7 · BEHAVIORAL DESIGN PATTERNS</p>
+      <h1>QuickBite <span>Food Delivery</span></h1>
+    </div>
+    <div class="status-pill"><span class="live-dot"></span> Demo mode</div>
+  </header>
+
+  <main class="layout">
+    <section class="panel menu-panel">
+      <div class="section-heading">
+        <div><p class="eyebrow">FRESH FROM THE KITCHEN</p><h2>Menu</h2></div>
+        <span class="muted">Sample restaurant</span>
+      </div>
+      <div id="menu" class="menu-grid"></div>
+    </section>
+
+    <aside class="panel order-panel">
+      <p class="eyebrow">YOUR ORDER</p>
+      <h2>Checkout</h2>
+      <div id="cart" class="cart-list"><p class="muted">Your cart is empty. Add a dish to begin.</p></div>
+
+      <label for="deliveryStrategy">Delivery option</label>
+      <select id="deliveryStrategy">
+        <option value="standard">Standard delivery — ₹30</option>
+        <option value="express">Express delivery — ₹60</option>
+        <option value="free">Free delivery coupon — ₹0</option>
+      </select>
+      <p class="hint">The selected option is calculated by the Strategy pattern.</p>
+
+      <div class="bill">
+        <div><span>Food subtotal</span><strong id="subtotal">₹0</strong></div>
+        <div><span>Delivery fee</span><strong id="deliveryFee">₹0</strong></div>
+        <div class="total"><span>Total</span><strong id="total">₹0</strong></div>
+      </div>
+
+      <div class="button-stack">
+        <button id="placeOrderBtn" class="primary">Place order</button>
+        <button id="cancelOrderBtn" class="secondary">Cancel current order</button>
+        <button id="trackOrderBtn" class="secondary">Track order</button>
+        <button id="undoBtn" class="ghost">Undo last action</button>
+      </div>
+      <p id="orderStatus" class="order-status">No order placed yet.</p>
+    </aside>
+
+    <section class="panel notifications-panel">
+      <div class="section-heading">
+        <div><p class="eyebrow">OBSERVER PATTERN</p><h2>Notification centre</h2></div>
+        <button id="clearNotificationsBtn" class="text-button">Clear log</button>
+      </div>
+      <p class="muted">Restaurant and delivery-agent observers receive updates when an order event occurs.</p>
+      <ul id="notifications" class="notification-list">
+        <li class="empty-log">Notifications will appear here.</li>
+      </ul>
+    </section>
+
+    <section class="panel patterns-panel">
+      <p class="eyebrow">FOR YOUR VIVA</p>
+      <h2>Patterns used in this project</h2>
+      <div class="pattern-row"><span class="pattern-number">01</span><div><strong>Observer</strong><p>OrderSubject notifies RestaurantObserver and DeliveryAgentObserver.</p></div></div>
+      <div class="pattern-row"><span class="pattern-number">02</span><div><strong>Strategy</strong><p>StandardDelivery, ExpressDelivery and FreeDelivery calculate the delivery fee.</p></div></div>
+      <div class="pattern-row"><span class="pattern-number">03</span><div><strong>Command</strong><p>PlaceOrderCommand, CancelOrderCommand and TrackOrderCommand encapsulate actions; an invoker executes them.</p></div></div>
+    </section>
+  </main>
+
+  <footer>Educational prototype · Orders and notifications are simulated locally in your browser.</footer>
+  <script src="script.js"></script>
+</body>
+</html>
